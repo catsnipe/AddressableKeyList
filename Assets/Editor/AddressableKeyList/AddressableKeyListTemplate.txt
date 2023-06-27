@@ -1,0 +1,34 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+///<summary>
+/// AddressableAsset Key-Const
+///</summary>
+public class AddressableConst
+{
+//$$REGION KEY$$
+}
+
+///<summary>
+/// AddressableAsset Key-List
+///</summary>
+public partial class AddressablesKey
+{
+    static HashSet<string> keyList = new HashSet<string>();
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void initialize()
+    {
+//$$REGION KEYDIC$$
+    }
+
+    public static bool Contains(string key)
+    {
+        if (keyList == null || keyList.Contains(key) == false)
+        {
+            return false;
+        }
+        return true;
+    }
+
+}
