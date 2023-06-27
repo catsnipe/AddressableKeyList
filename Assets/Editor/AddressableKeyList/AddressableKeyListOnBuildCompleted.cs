@@ -15,6 +15,11 @@ public static class AddressableKeyListOnBuildCompleted
     /// </summary>
     private static void OnBuildCompleted(AddressableAssetBuildResult result)
     {
+        if (result.OutputPath.IndexOf("com.unity.addressables") < 0)
+        {
+            return;
+        }
+
         Debug.Log( $"Duration: {result.Duration}sec." );
         Debug.Log( $"Error: {result.Error}" );
 
