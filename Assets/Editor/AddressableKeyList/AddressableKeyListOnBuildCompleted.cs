@@ -8,6 +8,7 @@ public static class AddressableKeyListOnBuildCompleted
     static AddressableKeyListOnBuildCompleted()
     {
         BuildScript.buildCompleted += OnBuildCompleted;
+        
     }
 
     /// <summary>

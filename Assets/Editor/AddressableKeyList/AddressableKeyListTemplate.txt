@@ -14,7 +14,7 @@ public class AddressableConst
 ///</summary>
 public partial class AddressablesKey
 {
-    static HashSet<string> keyList = new HashSet<string>();
+    public static HashSet<string> KeyList = new HashSet<string>();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void initialize()
@@ -24,7 +24,7 @@ public partial class AddressablesKey
 
     public static bool Contains(string key)
     {
-        if (keyList == null || keyList.Contains(key) == false)
+        if (KeyList == null || KeyList.Contains(key) == false)
         {
             return false;
         }

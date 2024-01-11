@@ -20,23 +20,23 @@ public class AddressableConst
 ///</summary>
 public partial class AddressablesKey
 {
-    static HashSet<string> keyList = new HashSet<string>();
+    public static HashSet<string> KeyList = new HashSet<string>();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void initialize()
     {
-        keyList.Add("EditorSceneList");
-        keyList.Add("nani mo nai");
-        keyList.Add("null string");
-        keyList.Add("Resources");
-        keyList.Add("test");
-        keyList.Add("New Label");
+        KeyList.Add("EditorSceneList");
+        KeyList.Add("nani mo nai");
+        KeyList.Add("null string");
+        KeyList.Add("Resources");
+        KeyList.Add("test");
+        KeyList.Add("New Label");
 
     }
 
     public static bool Contains(string key)
     {
-        if (keyList == null || keyList.Contains(key) == false)
+        if (KeyList == null || KeyList.Contains(key) == false)
         {
             return false;
         }

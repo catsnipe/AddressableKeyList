@@ -106,14 +106,21 @@ public class AddressablesKeyListCreator : EditorWindow
         var labelDic   = new SortedDictionary<string, string>();
         var dic        = new Dictionary<string, string>();
 
+        var groupDic   = new SortedDictionary<string, string>();
+
         // 対象のディレクトリ以下のアセットを全て取得し、アドレスとラベルを記録
         foreach (var group in loadAll<AddressableAssetGroup>(aasGroupDirectory))
         {
             foreach (var entry in group.entries)
             {
+                if (groupDic.ContainsKey(entry.address) == false)
+                {
+                    groupDic.Add(entry.address, group.name);
+                }
+
                 if (addressDic.ContainsKey(entry.address) == true)
                 {
-                    logError($"[{nameof(AddressablesKeyListCreator)}]: duplicate same address/label '{entry.address}'");
+                    logError($"[{nameof(AddressablesKeyListCreator)}]: duplicate same address/label '{entry.address}', group '{group.name}' '{groupDic[entry.address]}'");
                 }
                 addressDic[entry.address] = entry.address;
                 
@@ -214,7 +221,7 @@ public class AddressablesKeyListCreator : EditorWindow
                 string line  = $"    public const string {key} = \"{pair.Value}\";";
                 sb.AppendLine(line);
 
-                string line2 = $"        keyList.Add(\"{pair.Value}\");";
+                string line2 = $"        KeyList.Add(\"{pair.Value}\");";
                 sb2.AppendLine(line2);
             }
         }
